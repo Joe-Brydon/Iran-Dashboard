@@ -13,12 +13,13 @@ fi
 echo "Running daily update..."
 
 claude -p "$(cat "$PROMPT_FILE")" \
-  --output-format json \
+  --output-format stream-json \
+  --verbose \
   --permission-mode dontAsk \
   --allowedTools "WebSearch,WebFetch,Read,Edit(data/state.json)" \
   --max-turns 40 \
   --max-budget-usd 2.00 \
-  > "$LOG_FILE"
+  | tee "$LOG_FILE"
 
 echo "Run complete. Output saved to $LOG_FILE"
 git -C "$REPO_ROOT" diff --stat data/state.json || true
