@@ -1,0 +1,51 @@
+name: Daily Iran War Risk Model Update
+
+on:
+  schedule:
+    # 13:00 UTC daily (~9am ET). Adjust to taste.
+    - cron: "0 13 * * *"
+  workflow_dispatch: {}   # allows manual "Run workflow" trigger for testing
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Run daily update (headless)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: bash scripts/run_update.sh
+
+      - name: Open PR with the day's update
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: daily-update-${{ github.run_id }}
+          commit-message: "Daily update: ${{ github.run_id }}"
+          title: "Daily update: $(date -u +%Y-%m-%d)"
+          body: |
+            Automated update from the scheduled Claude Code run.
+            **Review before merging** — see scripts/last_run.json for the run's
+            structured output and data/state.json's changelog entry for the summary.
+          add-paths: |
+            data/state.json
+            scripts/last_run.json
+
+# Deploying dashboard.html + data/state.json to GitHub Pages after merge to main
+# is a separate, simpler workflow (e.g., actions/deploy-pages) — intentionally not
+# combined here so a bad update can't auto-publish before human review.
+Add workflow file
