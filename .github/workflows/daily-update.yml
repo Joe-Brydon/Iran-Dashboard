@@ -15,7 +15,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        - name: Pre-approve workspace trust
+        
+      - name: Pre-approve workspace trust
         run: |
           mkdir -p "$HOME"
           cat > "$HOME/.claude.json" <<EOF
@@ -27,9 +28,7 @@ jobs:
               }
             }
           }
-          EOF
-
-      - name: Set up Node
+          EOF- name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
