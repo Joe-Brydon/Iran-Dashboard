@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -uo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PROMPT_FILE="$REPO_ROOT/scripts/daily_update_prompt.md"
@@ -21,5 +21,19 @@ claude -p "$(cat "$PROMPT_FILE")" \
   --max-budget-usd 2.00 \
   | tee "$LOG_FILE"
 
-echo "Run complete. Output saved to $LOG_FILE"
-git -C "$REPO_ROOT" diff --stat data/state.json || true
+CLAUDE_EXIT=${PIPESTATUS[0]}
+echo "Claude Code process exit status: $CLAUDE_EXIT"
+
+if git -C "$REPO_ROOT" diff --quiet -- data/state.json; then
+  echo "No changes were made to data/state.json."
+  if [ "$CLAUDE_EXIT" -ne 0 ]; then
+    echo "No changes AND a non-zero exit -- treating this as a genuine failure."
+    exit 1
+  fi
+  echo "No material change today -- treating as a successful no-op run."
+  exit 0
+else
+  echo "data/state.json was updated -- proceeding regardless of exit code $CLAUDE_EXIT."
+  git -C "$REPO_ROOT" diff --stat data/state.json
+  exit 0
+fi
