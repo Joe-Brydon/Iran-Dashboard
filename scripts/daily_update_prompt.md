@@ -17,11 +17,21 @@ Check, in this order, and stop early if a category has no material change:
 3. **Rates & credit**: any Fed statements or meeting outcomes, 10-year Treasury yield,
    any private-credit/BDC stress reporting, AI-capex commentary from hyperscaler
    earnings or BIS/IMF releases.
-4. **The three actors**: any material Israeli political development (coalition,
+4. **The four actors**: any material Israeli political development (coalition,
    election polling, Netanyahu-Trump relationship), any Iranian leadership/regime
    stability news (Mojtaba Khamenei, IRGC factional activity, protests), any Chinese
    diplomatic or economic posture change (Wang Yi statements, oil import data,
-   US-China relationship signals).
+   US-China relationship signals), and any US domestic political development
+   affecting Trump's freedom of action (post-midterm House control, War Powers
+   Resolution activity, Pentagon/CENTCOM readiness or interceptor-stock reporting).
+5. **Taiwan Strait tension**: any new Chinese military activity (live-fire drills,
+   coastguard patrols, PLA-Russia joint exercises), Taiwan defense-budget or
+   legislative developments, or chip-fab (TSMC) exposure news. This is tracked as an
+   independent watch item, not yet wired into the transition matrix as a numeric
+   input — do not invent a linkage between Taiwan events and the five war states
+   unless something explicitly connects them (e.g., a chip-supply shock tied
+   directly to the Iran war's energy effects on Taiwanese fabs, which does belong in
+   `ai_capex_credit` instead).
 
 Use no more than ~15-20 searches total. If nothing material changed in a category,
 say so explicitly in the changelog rather than inventing a cosmetic edit.
@@ -48,7 +58,9 @@ say so explicitly in the changelog rather than inventing a cosmetic edit.
 - **`actors`**: update `lean_pct` or the text fields only on real news about that
   actor specifically. Do not touch an actor's profile because of war news alone —
   the whole point of modeling them independently is that they don't move in lockstep
-  with the war.
+  with the war. This now includes `us` (Trump administration/Congress dynamics) —
+  hold it to the same standard: only update on genuine US-domestic-political news,
+  not on every war headline.
 
 ## Step 3 — Always append to `meta.changelog`
 
