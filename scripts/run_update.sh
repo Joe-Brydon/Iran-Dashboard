@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
-# Runs the daily update as a headless Claude Code job.
-# Expects ANTHROPIC_API_KEY to be set in the environment (via GitHub Actions secret
-# or your local shell). Intended to be called from CI, not run interactively.
-
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -14,16 +10,15 @@ if [ -z "${ANTHROPIC_API_KEY:-}" ]; then
   exit 1
 fi
 
-echo "Running daily update at $(date -u +%Y-%m-%dT%H:%M:%SZ)..."
+echo "Running daily update..."
 
-# --output-format json gives structured output (session id, usage, cost) for logging.
-# --allowedTools scopes this run to web search/fetch and editing state.json only —
-# it should not need general shell or arbitrary file-edit access.
 claude -p "$(cat "$PROMPT_FILE")" \
   --output-format json \
+  --permission-mode dontAsk \
   --allowedTools "WebSearch,WebFetch,Read,Edit(data/state.json)" \
+  --max-turns 40 \
+  --max-budget-usd 2.00 \
   > "$LOG_FILE"
 
-echo "Run complete. Structured output saved to $LOG_FILE"
-echo "Diff of data/state.json:"
+echo "Run complete. Output saved to $LOG_FILE"
 git -C "$REPO_ROOT" diff --stat data/state.json || true
