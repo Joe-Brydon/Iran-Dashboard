@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-07-29T18:00:00Z",
-    "last_run_status": "manual_seed",
+    "last_updated": "2026-07-29T23:30:00Z",
+    "last_run_status": "daily_update",
     "version": 1,
     "changelog": [
       {
@@ -9,6 +9,12 @@
         "summary": "Initial seed from manual analysis: 5-state transition matrix, Israel/Iran/China actor dynamics, live Fed/AI-capex/post-midterm variables.",
         "confidence": "high",
         "human_reviewed": true
+      },
+      {
+        "date": "2026-07-29",
+        "summary": "First automated daily update, hours after the seed. Material 24-48h moves: Brent +~7% to ~$90 on the Jul 29 reescalation (Forbes/Fortune/oilprice); the July 28-29 FOMC resolved as a hawkish hold (rates unchanged, 3 dissents favoring a hike) with the 10-year rising ~5bp to ~4.66% and equities selling off (CNBC). Refreshed ai_capex_credit with late-July hyperscaler earnings/credit signals (FactSet, UBS via reporting). Left SPR at 307.7M: the newest named EIA weekly figure (311.4M, week of Jul 17) predates the seed's basis, so there is no fresher release to update from. Held current_state_estimate at II, the transition_matrix, and all actor profiles unchanged: the dual-chokepoint (Hormuz + Bab al-Mandeb) closure was already reflected in the seed and no new war-cycle transition or actor-specific domestic development occurred in the last 24-48h.",
+        "confidence": "moderate",
+        "human_reviewed": false
       }
     ]
   },
@@ -16,26 +22,26 @@
     "taiwan_strait": {
       "label": "Taiwan Strait Tension",
       "status": "elevated, watch item",
-      "detail": "China ran live-fire drills in the western Taiwan Strait July 24 alongside wider coastguard 'squeeze' patrols around the island, and held Joint Sea-2026 naval exercises with Russia July 6-13. Taiwan's Lai has called for a $40B defense-spending increase, currently stalled in the legislature. Not yet linked to the Iran-war transition matrix as a numeric input; tracked here as an independent watch item per the polycrisis discussion.",
-      "last_checked": "2026-07-29T18:00:00Z"
+      "detail": "China ran two-day live-fire drills in the western Taiwan Strait July 23-24 alongside wider coastguard 'squeeze' patrols around the island, and held Joint Sea-2026 naval exercises with Russia July 6-13. The drills came a day after July 22 Rubio-Wang Yi talks and were condemned by Taipei as a 'gray-zone' provocation. Taiwan's Lai has called for a $40B defense-spending increase, currently stalled in the legislature. Not yet linked to the Iran-war transition matrix as a numeric input; tracked here as an independent watch item per the polycrisis discussion.",
+      "last_checked": "2026-07-29T23:30:00Z"
     },
     "fed_decision": {
       "label": "FOMC Decision",
-      "status": "pending",
-      "detail": "Warsh's Fed meets with hike odds near 36%, up from 26% a week prior, against a war that reignited after a 5-day pause.",
-      "last_checked": "2026-07-29T18:00:00Z"
+      "status": "resolved — hawkish hold",
+      "detail": "Warsh's Fed held rates unchanged at the July 28-29 meeting, with three members dissenting in favor of a hike and the Committee preserving the option to tighten further if inflation proves persistent. The 10-year yield rose ~5bp to ~4.66% and equities sold off (Dow -1.6%) on the announcement.",
+      "last_checked": "2026-07-29T23:30:00Z"
     },
     "ai_capex_credit": {
       "label": "AI Capex / Private Credit Stress",
       "status": "elevated",
-      "detail": "AI capex ~93% of hyperscaler operating cash flow (was 33% in 2023). $3.3T semiconductor selloff July 21. BIS flagged AI/private-credit as a top-4 systemic risk in its 2026 Annual Report.",
-      "last_checked": "2026-07-29T18:00:00Z"
+      "detail": "AI capex ~93% of hyperscaler operating cash flow (was 33% in 2023). $3.3T semiconductor selloff July 21. BIS flagged AI/private-credit as a top-4 systemic risk in its 2026 Annual Report. Late-July earnings sharpened the credit angle: Alphabet guided 2026 capex to $195-205B (shares -7% on the week) and Meta to $125-145B; FactSet notes hyperscaler debt-funded capex rose from 9% of capex (FY24) to 32% LTM, and UBS cut its leveraged-loan forecast on the view that AI-disruption risk is underpriced in loan and private-credit markets.",
+      "last_checked": "2026-07-29T23:30:00Z"
     },
     "post_midterm_restraint": {
       "label": "Post-Midterm De-Restraint",
       "status": "structural, not yet active",
       "detail": "Activates after Nov 3, 2026 if Republicans lose the House as projected (217-214 margin). Commentary already frames Iran posture as lame-duck legacy-seeking.",
-      "last_checked": "2026-07-29T18:00:00Z"
+      "last_checked": "2026-07-29T23:30:00Z"
     }
   },
   "war_cycle_history": [
@@ -114,9 +120,9 @@
     }
   },
   "economic_snapshot": {
-    "brent_crude_usd": 84,
+    "brent_crude_usd": 90,
     "brent_range_ytd": "68-140",
-    "ten_year_yield_pct": 4.58,
+    "ten_year_yield_pct": 4.66,
     "spr_barrels_million": 307.7,
     "spr_low_since": "March 1983",
     "ai_capex_share_of_hyperscaler_ocf_pct": 93
