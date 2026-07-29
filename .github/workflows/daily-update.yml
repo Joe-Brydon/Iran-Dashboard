@@ -15,20 +15,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
+
       - name: Pre-approve workspace trust
-        run: |
-          mkdir -p "$HOME"
-          cat > "$HOME/.claude.json" <<EOF
-          {
-            "projects": {
-              "$(pwd)": {
-                "hasTrustDialogAccepted": true,
-                "allowedTools": ["WebSearch", "WebFetch", "Read", "Edit"]
-              }
-            }
-          }
-          EOF- name: Set up Node
+        run: mkdir -p "$HOME" && printf '{"projects":{"%s":{"hasTrustDialogAccepted":true,"allowedTools":["WebSearch","WebFetch","Read","Edit"]}}}' "$(pwd)" > "$HOME/.claude.json"
+
+      - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
