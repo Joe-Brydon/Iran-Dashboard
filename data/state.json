@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-07-29T18:00:00Z",
-    "last_run_status": "manual_seed",
+    "last_updated": "2026-07-29T22:00:00Z",
+    "last_run_status": "automated_update",
     "version": 1,
     "changelog": [
       {
@@ -9,27 +9,33 @@
         "summary": "Initial seed from manual analysis: 5-state transition matrix, Israel/Iran/China actor dynamics, live Fed/AI-capex/post-midterm variables.",
         "confidence": "high",
         "human_reviewed": true
+      },
+      {
+        "date": "2026-07-29",
+        "summary": "First automated daily update. FOMC held the target range at 3.50-3.75% (9-3, three dissents favoring a 25bp hike), resolving fed_decision from 'pending'; markets now price hikes in Sept and Dec. Brent rose to ~$90.74 (+7.9%) and the 10-yr yield to 4.63% after Iran's attempted missile strike on US forces in Jordan and Trump's vow of heavy retaliation broke a multiday pause (already reflected in war_cycle_history; current state left at II). Refreshed AI-capex/credit detail with Moody's ($785B 2026 capex) and debt figures (~$460B direct / ~$1.2T off-balance-sheet leases). Actor text refreshed on actor-specific news: Israel (Oct 27 election date; coalition polling ~48-51 seats vs opposition majority), Iran (Pezeshkian's July 21 claim that Mojtaba is directing strategy — single interested source, treat as low-confidence), China (crude imports at a decade low, ~-41%; Wang Yi backing mediation). SPR left at 307.7M (no EIA weekly fresher than the seed retrievable; latest independently confirmed was 311.4M for Jul 17). lean_pct values and transition_matrix unchanged.",
+        "confidence": "moderate",
+        "human_reviewed": false
       }
     ]
   },
   "live_variables": {
     "fed_decision": {
       "label": "FOMC Decision",
-      "status": "pending",
-      "detail": "Warsh's Fed meets with hike odds near 36%, up from 26% a week prior, against a war that reignited after a 5-day pause.",
-      "last_checked": "2026-07-29T18:00:00Z"
+      "status": "resolved",
+      "detail": "Warsh's Fed held the target range at 3.50-3.75% on July 29 (fifth consecutive hold) in a 9-3 vote; three members dissented in favor of a 25bp hike. Markets now price 25bp hikes in September and December. Fed cited solid growth amid elevated uncertainty tied to the Middle East conflict.",
+      "last_checked": "2026-07-29T22:00:00Z"
     },
     "ai_capex_credit": {
       "label": "AI Capex / Private Credit Stress",
       "status": "elevated",
-      "detail": "AI capex ~93% of hyperscaler operating cash flow (was 33% in 2023). $3.3T semiconductor selloff July 21. BIS flagged AI/private-credit as a top-4 systemic risk in its 2026 Annual Report.",
-      "last_checked": "2026-07-29T18:00:00Z"
+      "detail": "AI capex ~93% of hyperscaler operating cash flow (was 33% in 2023). $3.3T semiconductor selloff July 21. Moody's projects hyperscaler AI capex of $785B in 2026 rising toward $1T in 2027; combined direct debt across Microsoft/Amazon/Alphabet/Meta/Oracle/CoreWeave ~$460B with ~$1.2T in off-balance-sheet data-center lease commitments. BIS flagged AI/private-credit ('shadow borrowing') as a systemic risk in its June 28, 2026 Annual Economic Report.",
+      "last_checked": "2026-07-29T22:00:00Z"
     },
     "post_midterm_restraint": {
       "label": "Post-Midterm De-Restraint",
       "status": "structural, not yet active",
       "detail": "Activates after Nov 3, 2026 if Republicans lose the House as projected (217-214 margin). Commentary already frames Iran posture as lame-duck legacy-seeking.",
-      "last_checked": "2026-07-29T18:00:00Z"
+      "last_checked": "2026-07-29T22:00:00Z"
     }
   },
   "war_cycle_history": [
@@ -60,9 +66,9 @@
   "actors": {
     "israel": {
       "name": "Israel",
-      "subtitle": "Netanyahu \u2014 Fall 2026 Election",
+      "subtitle": "Netanyahu \u2014 Oct 27, 2026 Election",
       "lean_pct": 55,
-      "core_incentive": "Facing a fall election Netanyahu is projected to struggle to win; only 15% of Israelis believe the Iran war produced a clear victory, and the 'rally around the flag' bump is fading.",
+      "core_incentive": "Facing an Oct 27, 2026 election Netanyahu is projected to lose: mid-July Maariv polling put his coalition at ~48 seats (its lowest yet) and a Kan 11 poll at 51 vs 69 for the opposition, with Gadi Eisenkot's Yashar leading. Only ~15% of Israelis believe the Iran war produced a clear victory, and the 'rally around the flag' bump is fading.",
       "key_constraint": "Coalition dependency on right-wing/ultra-Orthodox partners favoring hardline posture, against a visibly cooling Trump relationship and diverging war aims.",
       "modifiers": [
         "II\u2192III raised: independent electoral incentive toward renewed confrontation.",
@@ -74,7 +80,7 @@
       "name": "Iran",
       "subtitle": "Mojtaba Khamenei \u2014 \u2018Phantom\u2019 Supreme Leader",
       "lean_pct": 50,
-      "core_incentive": "Installed under IRGC pressure after his father's Feb 28 assassination; zero verified public appearances since. Authority borrowed entirely from the security apparatus.",
+      "core_incentive": "Installed under IRGC pressure after his father's Feb 28 assassination; still no verified public appearance, though President Pezeshkian claimed on July 21 that Mojtaba is increasingly directing state strategy and that he now has 'greater access' to him (single interested source). Authority remains borrowed largely from the security apparatus.",
       "key_constraint": "No arbiter left to contain factional rivalries; individual strikes may reflect factional signaling rather than centralized strategy. Deep socio-economic crisis (inflation, water, unemployment) running in parallel.",
       "modifiers": [
         "Raises volatility across all cells \u2014 surprise transitions more likely than a unitary-actor model predicts.",
@@ -86,8 +92,8 @@
       "name": "China",
       "subtitle": "Wang Yi \u2014 \u2018Friend to All\u2019 Positioning",
       "lean_pct": 62,
-      "core_incentive": "Revealed preference is de-escalation: 40%+ of crude imports originate from the Middle East. Overriding priority is protecting the Trump-Xi relationship.",
-      "key_constraint": "Real but limited mediation leverage \u2014 Pakistan, not China, brokered the April ceasefire. Still supplies Iran dual-use tech and vetoed a Bahrain-led UNSC resolution alongside Russia.",
+      "core_incentive": "Revealed preference is de-escalation: 40%+ of crude imports originate from the Middle East, and Chinese crude imports fell ~41% to a decade low in June-July amid the war. Overriding priority is protecting the Trump-Xi relationship.",
+      "key_constraint": "Real but limited mediation leverage \u2014 Pakistan, not China, brokered the April ceasefire; Wang Yi has backed a China-Pakistan five-point plan and welcomed resumed US-Iran consultations and the 14-point MoU. Still supplies Iran dual-use tech and vetoed a Bahrain-led UNSC resolution alongside Russia.",
       "modifiers": [
         "III\u2192II reversion raised: genuine incentive to discourage chokepoint escalation raising its own import costs.",
         "Petroyuan/systemic trend continues regardless \u2014 banked passively, not accelerated deliberately.",
@@ -96,9 +102,9 @@
     }
   },
   "economic_snapshot": {
-    "brent_crude_usd": 84,
+    "brent_crude_usd": 90.74,
     "brent_range_ytd": "68-140",
-    "ten_year_yield_pct": 4.58,
+    "ten_year_yield_pct": 4.63,
     "spr_barrels_million": 307.7,
     "spr_low_since": "March 1983",
     "ai_capex_share_of_hyperscaler_ocf_pct": 93
