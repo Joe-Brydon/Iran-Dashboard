@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_updated": "2026-07-29T18:00:00Z",
-    "last_run_status": "manual_seed",
+    "last_updated": "2026-07-29T21:00:00Z",
+    "last_run_status": "daily_update",
     "version": 1,
     "changelog": [
       {
@@ -9,27 +9,33 @@
         "summary": "Initial seed from manual analysis: 5-state transition matrix, Israel/Iran/China actor dynamics, live Fed/AI-capex/post-midterm variables.",
         "confidence": "high",
         "human_reviewed": true
+      },
+      {
+        "date": "2026-07-29",
+        "summary": "War escalated: Jul 28 IRGC ballistic-missile attack on US forces/CENTCOM in Jordan (all intercepted) and Trump's pledge of heavy retaliation, with US/Saudi counterstrikes in eastern Iraq, sent Brent +7.9% to ~$91 (from 84) and the 10Y to 4.63% (from 4.58). FOMC resolved: held at 3.5-3.75% in a 9-3 vote (Hammack/Kashkari/Logan dissented for a 25bp hike). SPR confirmed at 307.7M bbl (EIA, wk ending Jul 24). AI-credit stress deepened (hyperscaler bond order coverage ~5x in Feb to <2x by Jul). Israel lean nudged 55->56 on record-low Netanyahu-bloc polling. State held at II with elevated III/IV escalation risk (no confirmed chokepoint closure); matrix row II shifted toward escalation. Iran/China profiles unchanged.",
+        "confidence": "moderate",
+        "human_reviewed": false
       }
     ]
   },
   "live_variables": {
     "fed_decision": {
       "label": "FOMC Decision",
-      "status": "pending",
-      "detail": "Warsh's Fed meets with hike odds near 36%, up from 26% a week prior, against a war that reignited after a 5-day pause.",
-      "last_checked": "2026-07-29T18:00:00Z"
+      "status": "resolved",
+      "detail": "Warsh's Fed held the funds rate at 3.5-3.75% on Jul 29 in a 9-3 vote; dissenters Hammack, Kashkari, and Logan wanted a 25bp hike. Markets now price two 25bp hikes by year-end against the reignited war.",
+      "last_checked": "2026-07-29T21:00:00Z"
     },
     "ai_capex_credit": {
       "label": "AI Capex / Private Credit Stress",
       "status": "elevated",
-      "detail": "AI capex ~93% of hyperscaler operating cash flow (was 33% in 2023). $3.3T semiconductor selloff July 21. BIS flagged AI/private-credit as a top-4 systemic risk in its 2026 Annual Report.",
-      "last_checked": "2026-07-29T18:00:00Z"
+      "detail": "AI capex ~93% of hyperscaler operating cash flow (was 33% in 2023). BIS flagged AI/private-credit as a top-4 systemic risk in its 2026 Annual Report. New stress signal: hyperscaler bond order coverage fell from ~5x (Feb) to below 2x (Jul), and incremental external debt rose from 9% of capex (FY24) to ~32% LTM by mid-2026.",
+      "last_checked": "2026-07-29T21:00:00Z"
     },
     "post_midterm_restraint": {
       "label": "Post-Midterm De-Restraint",
       "status": "structural, not yet active",
       "detail": "Activates after Nov 3, 2026 if Republicans lose the House as projected (217-214 margin). Commentary already frames Iran posture as lame-duck legacy-seeking.",
-      "last_checked": "2026-07-29T18:00:00Z"
+      "last_checked": "2026-07-29T21:00:00Z"
     }
   },
   "war_cycle_history": [
@@ -48,11 +54,11 @@
   "current_state_estimate": {
     "id": "II",
     "confidence": "moderate",
-    "rationale": "War reignited July 29 after a 5-day pause following the Jul 6-7 MoU breakdown; matches the observed strike-pause-violate pattern rather than a durable shift to III or IV."
+    "rationale": "Jul 28 IRGC ballistic-missile attack on US forces/CENTCOM in Jordan (all intercepted) and Trump's pledge of heavy retaliation, plus US/Saudi counterstrikes in Iraq, sharply raise escalation risk toward III/IV; held at II because no chokepoint (Hormuz/Bab al-Mandeb) closure has been confirmed and the pattern remains strike-and-retaliate rather than a structural shift."
   },
   "transition_matrix": {
     "I":   { "I": 0.55, "II": 0.35, "III": 0.08, "IV": 0.02, "V": 0.00 },
-    "II":  { "I": 0.18, "II": 0.38, "III": 0.30, "IV": 0.12, "V": 0.02 },
+    "II":  { "I": 0.18, "II": 0.32, "III": 0.33, "IV": 0.15, "V": 0.02 },
     "III": { "I": 0.10, "II": 0.28, "III": 0.34, "IV": 0.24, "V": 0.04 },
     "IV":  { "I": 0.06, "II": 0.20, "III": 0.28, "IV": 0.38, "V": 0.08 },
     "V":   { "I": 0.03, "II": 0.12, "III": 0.20, "IV": 0.30, "V": 0.35 }
@@ -61,8 +67,8 @@
     "israel": {
       "name": "Israel",
       "subtitle": "Netanyahu \u2014 Fall 2026 Election",
-      "lean_pct": 55,
-      "core_incentive": "Facing a fall election Netanyahu is projected to struggle to win; only 15% of Israelis believe the Iran war produced a clear victory, and the 'rally around the flag' bump is fading.",
+      "lean_pct": 56,
+      "core_incentive": "Facing a fall election, Netanyahu's bloc has slipped to its lowest polling yet (~48-51 of 120 Knesset seats vs. ~62-69 for the opposition in mid-July Maariv/Kan polls), with Eisenkot leading him ~46-40 on approval; only 15% of Israelis believe the Iran war produced a clear victory, and the 'rally around the flag' bump has faded.",
       "key_constraint": "Coalition dependency on right-wing/ultra-Orthodox partners favoring hardline posture, against a visibly cooling Trump relationship and diverging war aims.",
       "modifiers": [
         "II\u2192III raised: independent electoral incentive toward renewed confrontation.",
@@ -96,9 +102,9 @@
     }
   },
   "economic_snapshot": {
-    "brent_crude_usd": 84,
+    "brent_crude_usd": 91,
     "brent_range_ytd": "68-140",
-    "ten_year_yield_pct": 4.58,
+    "ten_year_yield_pct": 4.63,
     "spr_barrels_million": 307.7,
     "spr_low_since": "March 1983",
     "ai_capex_share_of_hyperscaler_ocf_pct": 93
