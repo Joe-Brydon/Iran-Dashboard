@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "last_updated": "2026-07-29T18:00:00Z",
+    "last_run_status": "manual_seed",
+    "version": 1,
+    "changelog": [
+      {
+        "date": "2026-07-29",
+        "summary": "Initial seed from manual analysis: 5-state transition matrix, Israel/Iran/China actor dynamics, live Fed/AI-capex/post-midterm variables.",
+        "confidence": "high",
+        "human_reviewed": true
+      }
+    ]
+  },
+  "live_variables": {
+    "fed_decision": {
+      "label": "FOMC Decision",
+      "status": "pending",
+      "detail": "Warsh's Fed meets with hike odds near 36%, up from 26% a week prior, against a war that reignited after a 5-day pause.",
+      "last_checked": "2026-07-29T18:00:00Z"
+    },
+    "ai_capex_credit": {
+      "label": "AI Capex / Private Credit Stress",
+      "status": "elevated",
+      "detail": "AI capex ~93% of hyperscaler operating cash flow (was 33% in 2023). $3.3T semiconductor selloff July 21. BIS flagged AI/private-credit as a top-4 systemic risk in its 2026 Annual Report.",
+      "last_checked": "2026-07-29T18:00:00Z"
+    },
+    "post_midterm_restraint": {
+      "label": "Post-Midterm De-Restraint",
+      "status": "structural, not yet active",
+      "detail": "Activates after Nov 3, 2026 if Republicans lose the House as projected (217-214 margin). Commentary already frames Iran posture as lame-duck legacy-seeking.",
+      "last_checked": "2026-07-29T18:00:00Z"
+    }
+  },
+  "war_cycle_history": [
+    { "label": "Feb 28 war start \u2192 Apr 7-8 ceasefire", "weeks": 5.5 },
+    { "label": "Ceasefire \u2192 June MoU", "weeks": 8 },
+    { "label": "MoU \u2192 Jul 6-7 breakdown", "weeks": 4.5 },
+    { "label": "Most recent pause \u2192 Jul 29 reescalation", "weeks": 0.7 }
+  ],
+  "states": [
+    { "id": "I",   "name": "De-escalation Consolidates",           "color": "#3a7d5c" },
+    { "id": "II",  "name": "Grinding Status Quo",                  "color": "#b8a830" },
+    { "id": "III", "name": "Dual Chokepoint Escalation",           "color": "#c07830" },
+    { "id": "IV",  "name": "Buffer Exhaustion / Post-Midterm",     "color": "#b84040" },
+    { "id": "V",   "name": "Black Swan / Polycrisis Threshold",    "color": "#8b1a1a" }
+  ],
+  "current_state_estimate": {
+    "id": "II",
+    "confidence": "moderate",
+    "rationale": "War reignited July 29 after a 5-day pause following the Jul 6-7 MoU breakdown; matches the observed strike-pause-violate pattern rather than a durable shift to III or IV."
+  },
+  "transition_matrix": {
+    "I":   { "I": 0.55, "II": 0.35, "III": 0.08, "IV": 0.02, "V": 0.00 },
+    "II":  { "I": 0.18, "II": 0.38, "III": 0.30, "IV": 0.12, "V": 0.02 },
+    "III": { "I": 0.10, "II": 0.28, "III": 0.34, "IV": 0.24, "V": 0.04 },
+    "IV":  { "I": 0.06, "II": 0.20, "III": 0.28, "IV": 0.38, "V": 0.08 },
+    "V":   { "I": 0.03, "II": 0.12, "III": 0.20, "IV": 0.30, "V": 0.35 }
+  },
+  "actors": {
+    "israel": {
+      "name": "Israel",
+      "subtitle": "Netanyahu \u2014 Fall 2026 Election",
+      "lean_pct": 55,
+      "core_incentive": "Facing a fall election Netanyahu is projected to struggle to win; only 15% of Israelis believe the Iran war produced a clear victory, and the 'rally around the flag' bump is fading.",
+      "key_constraint": "Coalition dependency on right-wing/ultra-Orthodox partners favoring hardline posture, against a visibly cooling Trump relationship and diverging war aims.",
+      "modifiers": [
+        "II\u2192III raised: independent electoral incentive toward renewed confrontation.",
+        "I persistence lowered: durable ceasefire removes Netanyahu's most reliable unifying narrative.",
+        "Raises risk of Israeli unilateral action decoupled from Washington's posture."
+      ]
+    },
+    "iran": {
+      "name": "Iran",
+      "subtitle": "Mojtaba Khamenei \u2014 \u2018Phantom\u2019 Supreme Leader",
+      "lean_pct": 50,
+      "core_incentive": "Installed under IRGC pressure after his father's Feb 28 assassination; zero verified public appearances since. Authority borrowed entirely from the security apparatus.",
+      "key_constraint": "No arbiter left to contain factional rivalries; individual strikes may reflect factional signaling rather than centralized strategy. Deep socio-economic crisis (inflation, water, unemployment) running in parallel.",
+      "modifiers": [
+        "Raises volatility across all cells \u2014 surprise transitions more likely than a unitary-actor model predicts.",
+        "I stability lowered: fragmented command may be unable to enforce a durable ceasefire on all factions.",
+        "Economic collapse could eventually push toward negotiated exit, in tension with hardliner legitimacy needs."
+      ]
+    },
+    "china": {
+      "name": "China",
+      "subtitle": "Wang Yi \u2014 \u2018Friend to All\u2019 Positioning",
+      "lean_pct": 62,
+      "core_incentive": "Revealed preference is de-escalation: 40%+ of crude imports originate from the Middle East. Overriding priority is protecting the Trump-Xi relationship.",
+      "key_constraint": "Real but limited mediation leverage \u2014 Pakistan, not China, brokered the April ceasefire. Still supplies Iran dual-use tech and vetoed a Bahrain-led UNSC resolution alongside Russia.",
+      "modifiers": [
+        "III\u2192II reversion raised: genuine incentive to discourage chokepoint escalation raising its own import costs.",
+        "Petroyuan/systemic trend continues regardless \u2014 banked passively, not accelerated deliberately.",
+        "Moderating influence may be maximized around summit windows and recede afterward."
+      ]
+    }
+  },
+  "economic_snapshot": {
+    "brent_crude_usd": 84,
+    "brent_range_ytd": "68-140",
+    "ten_year_yield_pct": 4.58,
+    "spr_barrels_million": 307.7,
+    "spr_low_since": "March 1983",
+    "ai_capex_share_of_hyperscaler_ocf_pct": 93
+  }
+}
