@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-07-29T23:30:00Z",
+    "last_updated": "2026-07-31T18:30:00Z",
     "last_run_status": "daily_update",
     "version": 1,
     "changelog": [
@@ -15,6 +15,12 @@
         "summary": "First automated daily update, hours after the seed. Material 24-48h moves: Brent +~7% to ~$90 on the Jul 29 reescalation (Forbes/Fortune/oilprice); the July 28-29 FOMC resolved as a hawkish hold (rates unchanged, 3 dissents favoring a hike) with the 10-year rising ~5bp to ~4.66% and equities selling off (CNBC). Refreshed ai_capex_credit with late-July hyperscaler earnings/credit signals (FactSet, UBS via reporting). Left SPR at 307.7M: the newest named EIA weekly figure (311.4M, week of Jul 17) predates the seed's basis, so there is no fresher release to update from. Held current_state_estimate at II, the transition_matrix, and all actor profiles unchanged: the dual-chokepoint (Hormuz + Bab al-Mandeb) closure was already reflected in the seed and no new war-cycle transition or actor-specific domestic development occurred in the last 24-48h.",
         "confidence": "moderate",
         "human_reviewed": false
+      },
+      {
+        "date": "2026-07-31",
+        "summary": "Moved current_state_estimate II->III (Dual Chokepoint Escalation). The Jul 29 reescalation widened rather than paused over the last 48h: Strait of Hormuz still closed and Bab al-Mandeb under the Houthis' Jul 20 maritime embargo (traffic down ~56% per The National/USNI) = confirmed dual-chokepoint disruption; regional spillover with Egypt struck for the first time Jul 30 (CNN), US-Saudi joint strikes on Iranian proxies in Iraq (CBS/NBC), and a Saudi-led ~13-nation Red Sea protection coalition (HQ Riyadh; UAE/Oman declined) announced Jul 30 (Al Jazeera). Trump said Jul 31 he is 'losing faith' with Iran but has not ruled out a deal; Iran says it has no direct US talks, only Oman channel on Hormuz (ABC/Al Jazeera). Economic_snapshot: Brent to ~$92 (Fortune, $92.27 Jul 31, ~flat day-on-day); 10-year 4.67% (Trading Economics, Jul 31, ~flat). SPR left at 307.7M (stale; no fresher EIA weekly figure found). Transition_matrix, war_cycle_history, and all four actor profiles held unchanged: the widening is war-conduct news, not a new cycle transition (no ceasefire/pause) or an actor-specific domestic development, and no new Taiwan/China/Israel/US-domestic news surfaced.",
+        "confidence": "moderate",
+        "human_reviewed": false
       }
     ]
   },
@@ -23,25 +29,25 @@
       "label": "Taiwan Strait Tension",
       "status": "elevated, watch item",
       "detail": "China ran two-day live-fire drills in the western Taiwan Strait July 23-24 alongside wider coastguard 'squeeze' patrols around the island, and held Joint Sea-2026 naval exercises with Russia July 6-13. The drills came a day after July 22 Rubio-Wang Yi talks and were condemned by Taipei as a 'gray-zone' provocation. Taiwan's Lai has called for a $40B defense-spending increase, currently stalled in the legislature. Not yet linked to the Iran-war transition matrix as a numeric input; tracked here as an independent watch item per the polycrisis discussion.",
-      "last_checked": "2026-07-29T23:30:00Z"
+      "last_checked": "2026-07-31T18:30:00Z"
     },
     "fed_decision": {
       "label": "FOMC Decision",
       "status": "resolved — hawkish hold",
       "detail": "Warsh's Fed held rates unchanged at the July 28-29 meeting, with three members dissenting in favor of a hike and the Committee preserving the option to tighten further if inflation proves persistent. The 10-year yield rose ~5bp to ~4.66% and equities sold off (Dow -1.6%) on the announcement.",
-      "last_checked": "2026-07-29T23:30:00Z"
+      "last_checked": "2026-07-31T18:30:00Z"
     },
     "ai_capex_credit": {
       "label": "AI Capex / Private Credit Stress",
       "status": "elevated",
       "detail": "AI capex ~93% of hyperscaler operating cash flow (was 33% in 2023). $3.3T semiconductor selloff July 21. BIS flagged AI/private-credit as a top-4 systemic risk in its 2026 Annual Report. Late-July earnings sharpened the credit angle: Alphabet guided 2026 capex to $195-205B (shares -7% on the week) and Meta to $125-145B; FactSet notes hyperscaler debt-funded capex rose from 9% of capex (FY24) to 32% LTM, and UBS cut its leveraged-loan forecast on the view that AI-disruption risk is underpriced in loan and private-credit markets.",
-      "last_checked": "2026-07-29T23:30:00Z"
+      "last_checked": "2026-07-31T18:30:00Z"
     },
     "post_midterm_restraint": {
       "label": "Post-Midterm De-Restraint",
       "status": "structural, not yet active",
       "detail": "Activates after Nov 3, 2026 if Republicans lose the House as projected (217-214 margin). Commentary already frames Iran posture as lame-duck legacy-seeking.",
-      "last_checked": "2026-07-29T23:30:00Z"
+      "last_checked": "2026-07-31T18:30:00Z"
     }
   },
   "war_cycle_history": [
@@ -58,9 +64,9 @@
     { "id": "V",   "name": "Black Swan / Polycrisis Threshold",    "color": "#8b1a1a" }
   ],
   "current_state_estimate": {
-    "id": "II",
+    "id": "III",
     "confidence": "moderate",
-    "rationale": "War reignited July 29 after a 5-day pause following the Jul 6-7 MoU breakdown; matches the observed strike-pause-violate pattern rather than a durable shift to III or IV."
+    "rationale": "Moved II->III: the Jul 29 reescalation has widened rather than paused, with the Strait of Hormuz still closed and Bab al-Mandeb under the Houthis' Jul 20 embargo (dual-chokepoint disruption), plus regional spillover (Egypt struck for the first time Jul 30 per CNN, US-Saudi joint strikes on Iranian proxies in Iraq, and a Saudi-led ~13-nation Red Sea coalition announced Jul 30 per Al Jazeera) that fits 'Dual Chokepoint Escalation' rather than a grinding status quo."
   },
   "transition_matrix": {
     "I":   { "I": 0.55, "II": 0.35, "III": 0.08, "IV": 0.02, "V": 0.00 },
@@ -120,9 +126,9 @@
     }
   },
   "economic_snapshot": {
-    "brent_crude_usd": 90,
+    "brent_crude_usd": 92,
     "brent_range_ytd": "68-140",
-    "ten_year_yield_pct": 4.66,
+    "ten_year_yield_pct": 4.67,
     "spr_barrels_million": 307.7,
     "spr_low_since": "March 1983",
     "ai_capex_share_of_hyperscaler_ocf_pct": 93
