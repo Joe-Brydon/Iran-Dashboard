@@ -1,6 +1,6 @@
 {
   "meta": {
-    "last_updated": "2026-07-29T23:30:00Z",
+    "last_updated": "2026-08-01T16:40:00Z",
     "last_run_status": "daily_update",
     "version": 1,
     "changelog": [
@@ -15,6 +15,12 @@
         "summary": "First automated daily update, hours after the seed. Material 24-48h moves: Brent +~7% to ~$90 on the Jul 29 reescalation (Forbes/Fortune/oilprice); the July 28-29 FOMC resolved as a hawkish hold (rates unchanged, 3 dissents favoring a hike) with the 10-year rising ~5bp to ~4.66% and equities selling off (CNBC). Refreshed ai_capex_credit with late-July hyperscaler earnings/credit signals (FactSet, UBS via reporting). Left SPR at 307.7M: the newest named EIA weekly figure (311.4M, week of Jul 17) predates the seed's basis, so there is no fresher release to update from. Held current_state_estimate at II, the transition_matrix, and all actor profiles unchanged: the dual-chokepoint (Hormuz + Bab al-Mandeb) closure was already reflected in the seed and no new war-cycle transition or actor-specific domestic development occurred in the last 24-48h.",
         "confidence": "moderate",
         "human_reviewed": false
+      },
+      {
+        "date": "2026-08-01",
+        "summary": "War escalation continued but no confirmed state transition. US has struck Iran for ~13 consecutive nights since the Jul 29 reescalation; the IRGC claimed a Jul 31 retaliatory strike on Kuwait, and Trump was reported (Axios, Jul 31) to be weighing strikes on Iranian energy infrastructure 'within days' while saying he is 'losing faith' with Tehran — flagged as the live State III risk but not yet executed, so current_state_estimate held at II. Economic: Brent round-tripped from a ~$100 spike (Jul 23, tankers struck off Saudi Arabia) down to ~$86 on Jul 27-31 as a pause was floated, re-firming to ~$88 on the energy-strike threat; updated brent_crude_usd 90→88 (oilprice/Wikipedia oil-market chronology). 10-year yield left at 4.66%: Jul 31 reports conflicted (one 4.75%, one ~4.65%) with no clean consensus, so held as stale-but-honest. SPR held at 307.7M (no fresher named EIA weekly release found this run). Actors: refreshed Israel (volatile polling — Likud recovered to largest party in a Jul 27 Kan 11 poll, Netanyahu/Eisenkot tied 38-38 on Channel 12; lean held 55) and US (House 214-208 Jul 23 and Senate 49-47 Jul 30 War Powers votes both fell short of binding Trump; lean held 52) on genuine actor-specific news. Iran unrest (Jul 28 PMOI 'Resistance Units' operations wave, post-funeral protests) reinforces the existing fragmentation thesis without changing the profile; China (Gulf crude flows resumed post-MoU) and Taiwan (no new drill beyond Jul 23-24) unchanged. Transition matrix and war_cycle_history held.",
+        "confidence": "moderate",
+        "human_reviewed": false
       }
     ]
   },
@@ -22,26 +28,26 @@
     "taiwan_strait": {
       "label": "Taiwan Strait Tension",
       "status": "elevated, watch item",
-      "detail": "China ran two-day live-fire drills in the western Taiwan Strait July 23-24 alongside wider coastguard 'squeeze' patrols around the island, and held Joint Sea-2026 naval exercises with Russia July 6-13. The drills came a day after July 22 Rubio-Wang Yi talks and were condemned by Taipei as a 'gray-zone' provocation. Taiwan's Lai has called for a $40B defense-spending increase, currently stalled in the legislature. Not yet linked to the Iran-war transition matrix as a numeric input; tracked here as an independent watch item per the polycrisis discussion.",
-      "last_checked": "2026-07-29T23:30:00Z"
+      "detail": "China ran two-day live-fire drills in the western Taiwan Strait July 23-24 alongside wider coastguard 'squeeze' patrols around the island, and held Joint Sea-2026 naval exercises with Russia July 6-13. The drills came a day after July 22 Rubio-Wang Yi talks and were condemned by Taipei as a 'gray-zone' provocation. Taiwan's Lai has called for a $40B defense-spending increase, currently stalled in the legislature. Not yet linked to the Iran-war transition matrix as a numeric input; tracked here as an independent watch item per the polycrisis discussion. No new drill reported through Jul 31 beyond the Jul 23-24 exercise.",
+      "last_checked": "2026-08-01T16:40:00Z"
     },
     "fed_decision": {
       "label": "FOMC Decision",
       "status": "resolved — hawkish hold",
-      "detail": "Warsh's Fed held rates unchanged at the July 28-29 meeting, with three members dissenting in favor of a hike and the Committee preserving the option to tighten further if inflation proves persistent. The 10-year yield rose ~5bp to ~4.66% and equities sold off (Dow -1.6%) on the announcement.",
-      "last_checked": "2026-07-29T23:30:00Z"
+      "detail": "Warsh's Fed held rates unchanged at the July 28-29 meeting, with three members dissenting in favor of a hike and the Committee preserving the option to tighten further if inflation proves persistent. The 10-year yield rose ~5bp to ~4.66% and equities sold off (Dow -1.6%) on the announcement. Post-meeting, the 10-year drifted in a ~4.65-4.75% band through Jul 31 with no clean consensus close.",
+      "last_checked": "2026-08-01T16:40:00Z"
     },
     "ai_capex_credit": {
       "label": "AI Capex / Private Credit Stress",
       "status": "elevated",
       "detail": "AI capex ~93% of hyperscaler operating cash flow (was 33% in 2023). $3.3T semiconductor selloff July 21. BIS flagged AI/private-credit as a top-4 systemic risk in its 2026 Annual Report. Late-July earnings sharpened the credit angle: Alphabet guided 2026 capex to $195-205B (shares -7% on the week) and Meta to $125-145B; FactSet notes hyperscaler debt-funded capex rose from 9% of capex (FY24) to 32% LTM, and UBS cut its leveraged-loan forecast on the view that AI-disruption risk is underpriced in loan and private-credit markets.",
-      "last_checked": "2026-07-29T23:30:00Z"
+      "last_checked": "2026-08-01T16:40:00Z"
     },
     "post_midterm_restraint": {
       "label": "Post-Midterm De-Restraint",
       "status": "structural, not yet active",
       "detail": "Activates after Nov 3, 2026 if Republicans lose the House as projected (217-214 margin). Commentary already frames Iran posture as lame-duck legacy-seeking.",
-      "last_checked": "2026-07-29T23:30:00Z"
+      "last_checked": "2026-08-01T16:40:00Z"
     }
   },
   "war_cycle_history": [
@@ -60,7 +66,7 @@
   "current_state_estimate": {
     "id": "II",
     "confidence": "moderate",
-    "rationale": "War reignited July 29 after a 5-day pause following the Jul 6-7 MoU breakdown; matches the observed strike-pause-violate pattern rather than a durable shift to III or IV."
+    "rationale": "Held at II: US strikes have continued roughly nightly since the Jul 29 reescalation and the IRGC claimed a Jul 31 retaliatory strike on Kuwait, but this remains the observed grinding strike-pattern rather than a durable shift. State III is the live near-term risk — Trump was reported (Axios, Jul 31) to be weighing strikes on Iranian energy infrastructure within days, which if executed would justify a move to III."
   },
   "transition_matrix": {
     "I":   { "I": 0.55, "II": 0.35, "III": 0.08, "IV": 0.02, "V": 0.00 },
@@ -74,7 +80,7 @@
       "name": "Israel",
       "subtitle": "Netanyahu \u2014 Fall 2026 Election",
       "lean_pct": 55,
-      "core_incentive": "Facing a fall election Netanyahu is projected to struggle to win; only 15% of Israelis believe the Iran war produced a clear victory, and the 'rally around the flag' bump is fading.",
+      "core_incentive": "Facing an election (deadline ~Oct 27, 2026) Netanyahu is in a volatile race: after Likud slid to ~20 seats in mid-July (lowest since June 2025, trailing Gadi Eisenkot's Yashar), a Jul 27 Kan 11 poll showed it regaining largest-party status, and a Channel 12 poll had Netanyahu and Eisenkot tied at 38% as preferred PM; the opposition still falls short of a majority without the Arab parties. The war's 'rally around the flag' bump has faded.",
       "key_constraint": "Coalition dependency on right-wing/ultra-Orthodox partners favoring hardline posture, against a visibly cooling Trump relationship and diverging war aims.",
       "modifiers": [
         "II\u2192III raised: independent electoral incentive toward renewed confrontation.",
@@ -111,7 +117,7 @@
       "subtitle": "Trump Administration \u2014 War Unpopularity vs. Legacy Incentive",
       "lean_pct": 52,
       "core_incentive": "The war remains historically unpopular domestically, but a decisive resolution (or a dramatic escalation framed as forcing one) offers a legacy narrative Trump has shown clear interest in. After Nov 3, 2026, a probable loss of the House removes most domestic legislative options, raising the relative weight of unilateral foreign-policy action as his primary remaining lever.",
-      "key_constraint": "A Democratic-controlled House could raise War Powers Resolution and appropriations challenges, a countervailing force to reduced electoral restraint. Pentagon/CENTCOM readiness is separately strained by Patriot interceptor demand shared across the Iran, Israel, and Ukraine theaters simultaneously.",
+      "key_constraint": "Congressional pushback is intensifying but has not yet bound Trump: the House passed a second nonbinding resolution 214-208 (Jul 23) and the Senate came within two votes (49-47, Jul 30) of discharging Sen. Van Hollen's binding resolution to halt US involvement, after ~13 consecutive nights of US strikes. A Democratic-controlled House after Nov 3 could sharpen War Powers and appropriations challenges. Pentagon/CENTCOM readiness is separately strained by Patriot interceptor demand shared across the Iran, Israel, and Ukraine theaters simultaneously.",
       "modifiers": [
         "II\u2192IV raised after Nov 3: reduced legislative restraint increases the odds of unilateral escalatory moves.",
         "I persistence uncertain: a durable resolution could itself serve as the legacy achievement, competing with an escalatory legacy narrative rather than clearly favoring one.",
@@ -120,7 +126,7 @@
     }
   },
   "economic_snapshot": {
-    "brent_crude_usd": 90,
+    "brent_crude_usd": 88,
     "brent_range_ytd": "68-140",
     "ten_year_yield_pct": 4.66,
     "spr_barrels_million": 307.7,
